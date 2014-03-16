@@ -1,0 +1,14 @@
+[run]
+omit=
+    api/src/datastore/api/run.py
+    api/src/datastore/api/helpers/session.py
+
+source=
+    api/src/datastore/api/
+    models/src/datastore/models/
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+

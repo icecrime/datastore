@@ -1,0 +1,17 @@
+api:
+    DEBUG: true
+    SECRET_KEY: P\x0c\xe2\xb8\x97\xa2@EO3\x0bi6\xda\xe1\xd3\x89\x14\xaa^\xc5\x0b\x84\x05
+
+auth:
+    encryption: nil
+    user_store: db
+
+database:
+    database: 'database.db'
+    drivername: sqlite
+
+database_options:
+    echo: False
+
+storage:
+    backend: memory

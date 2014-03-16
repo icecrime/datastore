@@ -1,0 +1,11 @@
+*.egg-info
+*.pyc
+.coverage
+.env
+.env26
+.env27
+.tox
+database.db
+logs/*
+store
+tools
