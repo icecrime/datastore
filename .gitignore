@@ -9,3 +9,4 @@ database.db
 logs/*
 store
 tools
+api/conf/config_prod.yaml
