@@ -23,7 +23,6 @@ setup(
         "Flask-Bcrypt == 0.5.2",
         "Flask-Login == 0.2.7",
         "itsdangerous == 0.23",
-        "mock == 1.0.1",
         "pycrypto == 2.6.1",
         "pytz == 2012g",
         "PyYAML == 3.10",
