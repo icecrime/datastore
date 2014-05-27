@@ -36,7 +36,7 @@ class expects(object):
 
     @staticmethod
     def _format_json(rv):
-        return json.dumps(rv.json(), indent=4)
+        return json.dumps(rv.json, indent=4)
 
     @staticmethod
     def _wrapper(fn, printer):
@@ -168,8 +168,8 @@ def put_chunked(root, path, **kwargs):
         if not line:
             break
         rv = session.put(url, data=line + '\n', params=params)
-        params['offset'] = rv.json()['offset']
-        params['upload_id'] = rv.json()['upload_id']
+        params['offset'] = rv.json['offset']
+        params['upload_id'] = rv.json['upload_id']
 
     params.pop('offset')
     return commit_chunked_upload(root, path, params['upload_id'], **kwargs)

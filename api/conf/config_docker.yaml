@@ -1,0 +1,22 @@
+api:
+    DEBUG: false
+    SECRET_KEY: P\x0c\xe2\xb8\x97\xa2@EO3\x0bi6\xda\xe1\xd3\x89\x14\xaa^\xc5\x0b\x84\x05
+
+auth:
+    encryption: scrypt
+    user_store: db
+
+database:
+    host: db
+    username: kuracistino
+    password: kuracistino
+    database: kuracistino
+    drivername: postgresql
+
+database_options:
+    echo: False
+    pool_recycle: 3600
+
+storage:
+    backend: fs
+    fs_root: /var/lib/datastore/
