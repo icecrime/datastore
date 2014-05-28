@@ -5,6 +5,7 @@
 .env26
 .env27
 .tox
+cookies.txt
 database.db
 logs/*
 store

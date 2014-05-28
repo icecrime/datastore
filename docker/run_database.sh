@@ -1,2 +1,2 @@
 #!/bin/sh
-docker run --name datastore_db datastore/db
+docker run --rm --name datastore_db datastore/db

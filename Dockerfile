@@ -23,7 +23,7 @@ RUN pip install /datastore/models/
 ENV DATASTORE_API_CONFIG_FILE config_docker.yaml
 
 # Install postgres requirements. Note that psycopg2 is not installed by the
-# /datastore/models because the app is database agnostic.
+# /datastore/models package because the app is database agnostic.
 RUN apt-get install -y libpq-dev
 RUN pip install psycopg2
 
@@ -37,7 +37,10 @@ RUN rm /etc/nginx/sites-enabled/default
 # that's not the ideal pattern)
 #RUN python /datastore/models/bin/create_database.py /datastore/api/conf/config_docker.yaml
 
+# Stored user files live on a durable volume
+VOLUME ["/var/lib/datastore/"]
+RUN chown -R www-data:www-data /var/lib/datastore
+
 # Run uwsgi and nginx through supervisord
 EXPOSE 80
-VOLUME ["/var/lib/datastore/"]
 CMD ["supervisord", "-n"]
