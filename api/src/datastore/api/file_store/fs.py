@@ -17,6 +17,7 @@ from datastore.api import config, tools
 
 
 storage_root = os.path.abspath(config.storage['fs_root'])
+storage_temp = os.path.join(storage_root, "_tmp")
 
 
 def _make_storage_key(root, content_hash):
@@ -33,6 +34,7 @@ def _save_request_content(destination, stream):
 
 def initialize():
     tools.make_dirs(storage_root)
+    tools.make_dirs(storage_temp)
     for storage_node in config.storage_nodes:
         tools.make_dirs(os.path.join(storage_root, storage_node))
     tools.make_dirs(os.path.join(storage_root, config.chunk_storage))
@@ -41,7 +43,7 @@ def initialize():
 def register_blob(root, path, stream, hasher):
     # Store the data to a temporary file. Reading the stream triggers the
     # checksum calculation.
-    with tempfile.NamedTemporaryFile() as temp_file:
+    with tempfile.NamedTemporaryFile(dir=storage_temp) as temp_file:
         _save_request_content(temp_file, stream)
 
         # Now the data has been read and the checksum computed accordingly, the
